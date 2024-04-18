@@ -1,23 +1,53 @@
 # Swyno Deploy
 
-Este projeto é o responsável por construir e inicializar a aplicação Swyno dentro de uma maquina virtual.
+O Swyno Deploy é o responsável por construir e inicializar a aplicação Swyno dentro de uma maquina virtual.
 
 ## Requisitos
 
-- docker
-- docker-compose
+Você precisa instalar o docker e o docker-compose em seu computador. Normalmente ao instalar o docker o docker-compose vem junto. Você pode verificar se seu computador possui essas dependências digitando no terminal: 
 
-## Instalação e atualização
+```
+docker -v && docker-compose -v
+```
 
-Abra um terminal na pasta onde está o arquivo docker-compose.yml e digite:
+## Instalação
+
+Para instalar e atualizar o sistema abra um terminal na pasta swyno-deploy e digite:
 
 ```
 docker-compose down --rmi all && docker-compose build --no-cache && docker-compose up -d
 ```
-Após isso feche o terminal e pode abrir o frontend no endereço:
+
+Para desinstalar o sistema abra um terminal na pasta swyno-deploy e digite:
+
+```
+docker-compose down --rmi all
+```
+
+## Acessando o sistema
+
+Você pode acessar o sistema nos seguintes endereços:
+
+Swyno Frontend:
 
 > http://localhost:8080
 
-E o backend no endereço:
+Swyno Backend:
 
 > http://localhost:8081
+
+## Backup
+
+Perceba que dentro da pasta swyno-deploy foi criada uma pasta chamada volumes. Você pode criar ou restaurar um backup dessa pasta após desligar o sistema. 
+
+Para desligar o sistema abra o terminal na pasta swyno-deploy e digite:
+
+```
+docker-compose stop
+```
+
+Para ligar novamente o sistema abra o terminal na pasta swyno-deploy e digite:
+
+```
+docker-compose up -d
+```
