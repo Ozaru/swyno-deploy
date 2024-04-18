@@ -4,13 +4,17 @@ O Swyno Deploy é o responsável por construir e inicializar a aplicação Swyno
 
 ## Requisitos
 
-Você precisa instalar o docker e o docker-compose em seu computador. Normalmente ao instalar o docker o docker-compose vem junto. Você pode verificar se seu computador possui essas dependências digitando no terminal: 
+Você precisa ter o docker instalado em seu computador, e normalmente o docker-compose vem junto do docker. Você pode encontrar o instalador neste endereço:
+
+> https://www.docker.com/products/docker-desktop
+
+Você pode verificar se o docker e o docker-compose foram instalados corretamente digitando no terminal: 
 
 ```
 docker -v && docker-compose -v
 ```
 
-## Instalação
+## Instalação, atualização e remoção
 
 Para instalar e atualizar o sistema abra um terminal na pasta swyno-deploy e digite:
 
@@ -24,9 +28,7 @@ Para desinstalar o sistema abra um terminal na pasta swyno-deploy e digite:
 docker-compose down --rmi all
 ```
 
-## Acessando o sistema
-
-Você pode acessar o sistema nos seguintes endereços:
+## Endereços de acesso
 
 Swyno Frontend:
 
@@ -38,7 +40,9 @@ Swyno Backend:
 
 ## Backup
 
-Perceba que dentro da pasta swyno-deploy foi criada uma pasta chamada volumes. Você pode criar ou restaurar um backup dessa pasta após desligar o sistema. 
+Perceba que depois de instalar o sistema aparecerá dentro da pasta swyno-deploy uma pasta chamada "volumes", esta pasta armazena todos os dados do sistema. Se essa pasta não existir o sistema irá criá-la, caso exista o sistema irá usá-la.
+
+Você precisa desligar o sistema antes de fazer ou restaurar um backup da pasta "volumes", e depois ligar o sistema novamente.
 
 Para desligar o sistema abra o terminal na pasta swyno-deploy e digite:
 
@@ -46,7 +50,7 @@ Para desligar o sistema abra o terminal na pasta swyno-deploy e digite:
 docker-compose stop
 ```
 
-Para ligar novamente o sistema abra o terminal na pasta swyno-deploy e digite:
+Para ligar o sistema abra o terminal na pasta swyno-deploy e digite:
 
 ```
 docker-compose up -d
