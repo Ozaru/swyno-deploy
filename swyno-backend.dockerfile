@@ -1,6 +1,8 @@
 # usa uma imagem linux alpine com node 20 instalado como base da maquina virtual
 FROM node:20-alpine
 
+ARG TAG=$TAG
+
 # cria e entra na pasta /app, pois antes disso ele está na pasta raiz do sistema
 WORKDIR /app
 
@@ -10,7 +12,7 @@ RUN apk --no-cache add git
 
 # clona o projeto via git. O "." no final do comando significa que ele será extraido
 # na pasta atual (/app), pois normalmente ele criaria uma pasta para o projeto (/app/swyno-backend)
-RUN git clone https://github.com/Ozaru/swyno-backend.git .
+RUN git clone --depth 1 --branch ${TAG} https://github.com/Ozaru/swyno-backend.git .
 
 # é feito um pull aqui para garantir que o projeto esteja atualizado, pois é possível 
 # que uma versão antiga esteja em cache e seja reaproveitada

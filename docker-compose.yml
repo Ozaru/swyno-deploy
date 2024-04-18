@@ -1,12 +1,15 @@
-version: '3'
-
 services:
 
   swyno-backend:
     container_name: swyno-backend
+    image: satangozo/swyno-backend:${TAG}
+    env_file:
+      - ./.env
     build:
       context: .
       dockerfile: swyno-backend.dockerfile
+      args:
+        TAG: ${TAG}
     ports:
       - 8081:3000
     volumes:
@@ -16,9 +19,14 @@ services:
 
   swyno-frontend:
     container_name: swyno-frontend
+    image: satangozo/swyno-frontend:${TAG}
+    env_file:
+      - ./.env
     build:
       context: .
       dockerfile: swyno-frontend.dockerfile
+      args:
+        TAG: ${TAG}
     ports:
       - 8080:4200
     networks:
