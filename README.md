@@ -53,5 +53,11 @@ docker-compose stop
 Para ligar o sistema abra o terminal na pasta swyno-deploy e digite:
 
 ```
-docker-compose up -d
+docker-compose start
+```
+
+Para reiniciar o sistema abra o terminal na pasta swyno-deploy e digite:
+
+```
+docker-compose restart
 ```
